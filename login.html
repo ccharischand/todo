@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="Bootstrap/css/bootstrap (2).css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="mb-3 ">
+        <div id="loginPopup" class="login-popup">
+            <div class="login-popup-content">
+                <a href="INC.html" class="close-btn ">&times;</a>
+                <h2>Login</h2>
+                <form>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+        </div>
+        <script>
+            // Open popup on page load
+            document.getElementById('loginPopup').style.display = 'flex';
+            // Close popup
+            document.getElementById('closeLogin').onclick = function() {
+                document.getElementById('loginPopup').style.display = 'none';
+            };
+        </script>

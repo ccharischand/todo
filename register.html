@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link href="Bootstrap/css/bootstrap (2).css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="registerPopup" class="register-popup">
+        <div class="login-popup-content">
+            <a href="INC.html" class="close-btn ">&times;</a>
+            <h2>Register</h2>
+            <form>
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script>
+        // Open popup on page load
+        document.getElementById('registerPopup').style.display = 'flex';
+        // Close popup
+        document.getElementById('closeRegister').onclick = function() {
+            document.getElementById('registerPopup').style.display = 'none';
+        };
+    </script>
+</body>
+<script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</html>
