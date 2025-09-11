@@ -378,45 +378,11 @@ body {
     gap: 1rem
 }
 
-
-/* Common Elements */
-
-.btn {
-    padding: .75rem 1rem;
-    border-radius: var(--radius);
-    font-weight: 700;
-    text-decoration: none
-}
-
-.btn-light {
-    background: transparent;
-    border: 1px solid rgba(15, 23, 42, .06)
-}
-
-.cta {
-    background: var(--primary);
-    color: var(--light)
-}
-
-
-/* HERO */
-
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 32px;
-    align-items: center;
-    padding: 48px 0
-}
-
-.hero .eyebrow {
-    display: inline-block;
-    padding: 6px 10px;
-    background: rgba(79, 70, 229, 0.08);
+.pill {
     color: var(--accent);
     border-radius: 999px;
     font-weight: 700;
-    font-size: 13px
+    font-size: 13px;
 }
 
 h1 {
@@ -1229,7 +1195,7 @@ footer {
 .result-card {
     flex: 1;
     /* Ensure all containers take equal width */
-    background: #ffffff;
+    background: #f0f5ff;
     border-radius: 18px;
     padding: 40px 30px;
     text-align: center;
@@ -1267,9 +1233,9 @@ footer {
         transform: scale(0.95);
     }
     .results-containers .result-card:hover {
-        opacity: 1 !important;
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        opacity: 0.9 !important;
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
     /* Counters (paste into your page) */
     .cc-counters {
@@ -1579,7 +1545,7 @@ footer {
 /* Individual Service Card Styles */
 
 .service-card {
-    background: white;
+    background: #e3f2fd;
     border-radius: 15px;
     padding: 40px 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
