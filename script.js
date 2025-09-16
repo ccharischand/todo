@@ -52,6 +52,23 @@ function resetInterval() {
 // Ensure slider is centered on load
 updateSlider();
 
+
+
+
+
+const toggleBtn = document.querySelector(".mobile-menu-toggle");
+const navList = document.querySelector(".nav-list");
+const navActions = document.querySelector(".nav-actions");
+
+toggleBtn.addEventListener("click", () => {
+    toggleBtn.classList.toggle("active"); // animate into X
+    navList.classList.toggle("active"); // show/hide links
+    navActions.classList.toggle("active"); // show/hide actions
+});
+
+
+
+
 // Counter animation
 (function() {
     const counters = Array.from(document.querySelectorAll('.cc-counter__num'));

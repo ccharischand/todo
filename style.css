@@ -303,26 +303,33 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 0;
+    margin-left: 15px;
+    /* small gap after Let's Connect */
+    align-items: center;
+    justify-content: center;
 }
 
-.hamburger {
+
+/* Hamburger lines */
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
     display: block;
     width: 24px;
     height: 2px;
     background: #333;
-    position: relative;
+    border-radius: 2px;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .hamburger::before,
 .hamburger::after {
-    content: '';
+    content: "";
     position: absolute;
-    width: 24px;
-    height: 2px;
-    background: #333;
-    transition: all 0.3s ease;
+    left: 0;
 }
 
 .hamburger::before {
@@ -330,36 +337,58 @@ body {
 }
 
 .hamburger::after {
-    bottom: -6px;
+    top: 6px;
 }
 
 
-/* Mobile responsive styles */
+/* Transform into X when active */
+
+.mobile-menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.mobile-menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.mobile-menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+/* Mobile styles */
 
 @media (max-width: 768px) {
     .mobile-menu-toggle {
-        display: block;
+        display: flex;
+        /* show only on mobile */
     }
     .nav-list,
     .nav-actions {
         display: none;
+        /* hide by default */
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
-        padding: 20px;
+        background: #fff;
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+        padding: 20px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     .nav-list.active,
     .nav-actions.active {
         display: flex;
+        /* show on toggle */
     }
-    .nav-link:after {
-        display: none;
-    }
+}
+
+.nav-link:after {
+    display: none;
 }
 
 .nav,
@@ -997,6 +1026,7 @@ footer {
 .slider {
     position: relative;
     width: 100%;
+    min-height: 500px;
     height: 600px;
     overflow: hidden;
     background: linear-gradient(135deg, #0a2a6c, #0575e6);
@@ -1031,7 +1061,46 @@ footer {
 }
 
 
-/* Slides */
+/*Slider Main Container */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a2a6c, #0575e6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* AI Network Background Animation */
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+    background-size: 80px 80px;
+    animation: moveAI 25s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moveAI {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-80px, -80px);
+    }
+}
+
+
+/*   Slides */
 
 .slides {
     display: flex;
@@ -1047,6 +1116,7 @@ footer {
     height: 100%;
     display: flex;
     flex-direction: row;
+    /* Always row (text left, image right) */
     align-items: center;
     justify-content: center;
     padding: 40px;
@@ -1055,8 +1125,9 @@ footer {
 }
 
 .slide-content {
+    flex: 1;
     max-width: 500px;
-    margin: 0 auto;
+    margin-right: 30px;
     text-align: left;
 }
 
@@ -1087,9 +1158,10 @@ footer {
 }
 
 
-/* Images */
+/*Slide Images*/
 
 .slide img {
+    flex: 1;
     max-width: 280px;
     border-radius: 50%;
     border: 6px solid #fff;
@@ -1108,7 +1180,7 @@ footer {
 }
 
 
-/* Dots */
+/* Navigation Dots*/
 
 .dots {
     position: absolute;
@@ -1135,7 +1207,7 @@ footer {
 }
 
 
-/* Arrows */
+/* Navigation Arrows */
 
 .arrow {
     position: absolute;
@@ -1164,7 +1236,7 @@ footer {
 }
 
 
-/* Next Image Section */
+/*Next Section After Slider */
 
 .next-section {
     width: 100%;
@@ -1177,6 +1249,46 @@ footer {
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Responsive Queries (Keep row layout always) */
+
+@media (max-width: 1024px) {
+    .slide {
+        padding: 20px;
+    }
+    .slide-content {
+        max-width: 90%;
+        margin-right: 20px;
+    }
+    .slide img {
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+    .slide-content p {
+        font-size: 0.95rem;
+    }
+    .slide img {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content h2 {
+        font-size: 1.2rem;
+    }
+    .slide-content p {
+        font-size: 0.85rem;
+    }
+    .slide img {
+        max-width: 150px;
+    }
 }
 
 
